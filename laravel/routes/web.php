@@ -2,32 +2,32 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/main', function () {
-    return view('mainpage');
-});
+//Route::get('/main', function () {
+//    return view('mainpage');
+//});
 
-Route::get('/about', function () {
-    return view('about');
-});
+//Route::get('/about', function () {
+//    return view('about');
+//});
 
-Route::get('/users_list', function () {
-    $users = [
-        'Ivan',
-        'Petr',
-        'Nikolay',
-        'Vasiliy',
-        'Oleg'
-    ];
-    return view('users', ['users' => $users]);
-});
+//Route::get('/users_list', function () {
+//    $users = [
+//        'Ivan',
+//        'Petr',
+//        'Nikolay',
+//        'Vasiliy',
+//        'Oleg'
+//    ];
+//    return view('users', ['users' => $users]);
+//});
 
-Route::get('/uppercase', function () {
-    return view('testdir');
-});
+//Route::get('/uppercase', function () {
+//    return view('testdir');
+//});
 
 //Route::get('/books', [\App\Http\Controllers\EntityController::class, 'index'])->name('books');
 //Route::post('/books', [\App\Http\Controllers\EntityController::class, 'store'])->name('save_book');
@@ -44,3 +44,25 @@ Route::get('/uppercase', function () {
 
 //Route::get('/test_database', [\App\Http\Controllers\NewEmployeeController::class, 'index']);
 //Route::post('/test_database', [\App\Http\Controllers\NewEmployeeController::class, 'store'])->name('save_employees');
+
+Route::get('/', function () {
+    $data = [
+        'name' => 'Aleksey',
+        'age' => 17,
+        'position' => 'Top',
+        'address' => 'Togliatty'
+    ];
+
+    return view('home', ['data' => $data]);
+});
+
+Route::get('/contacts', function () {
+    $data = [
+        'address' => 'Togliatty',
+        'post_code' => 119007623,
+        'email' => null,
+        'phone' => 89270256525
+    ];
+
+    return view('contacts', ['data' => $data]);
+});
