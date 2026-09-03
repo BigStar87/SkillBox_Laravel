@@ -23,17 +23,14 @@ class EmployeeController extends Controller
     {
         $data = $this->jsonEncode($this->addres);
 
-        $employee = new Employee();
-        $employee->name = $request->input('name');
-        $employee->email = $request->input('email');
+        $employee = new Employee($request->all());
         $employee->address = !empty($request->input('address')) ? $request->input('address') : $data;
-        $employee->work_data = $request->input('work_data');
         $employee->save();
 
         $url = $this->getUrl($request);
         $path = $this->getPath($request);
 
-        return 'Employee ' . $employee->name . ' create!' . PHP_EOL . $url . PHP_EOL . $path;
+        return 'Employee ' . $employee->name . ' create!' . '<br>URL: ' . $url . '<br>Path: ' . $path;
     }
 
     public function edit($id)
